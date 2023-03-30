@@ -37,18 +37,20 @@
   - [日常问题](#%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98)
   - [通过内置prompt聊天](#%E9%80%9A%E8%BF%87%E5%86%85%E7%BD%AEprompt%E8%81%8A%E5%A4%A9)
   - [生成图片](#%E7%94%9F%E6%88%90%E5%9B%BE%E7%89%87)
+  - [支持 gpt-4](#%E6%94%AF%E6%8C%81-gpt-4)
 - [本地开发](#%E6%9C%AC%E5%9C%B0%E5%BC%80%E5%8F%91)
 - [配置文件说明](#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)
 - [常见问题](#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98)
 - [感谢](#%E6%84%9F%E8%B0%A2)
 - [赞赏](#%E8%B5%9E%E8%B5%8F)
 - [高光时刻](#%E9%AB%98%E5%85%89%E6%97%B6%E5%88%BB)
+- [贡献者列表](#%E8%B4%A1%E7%8C%AE%E8%80%85%E5%88%97%E8%A1%A8)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## 前言
 
-本项目可以助你将GPT机器人集成到钉钉群聊当中。当前默认模型为 gpt-3.5。
+本项目可以助你将GPT机器人集成到钉钉群聊当中。当前默认模型为 gpt-3.5，支持gpt-4。
 
 
 > 🥳 **欢迎关注我的其他开源项目：**
@@ -299,6 +301,16 @@ $ tail -f run.log
 
 ![image_20230323_150547](https://cdn.staticaly.com/gh/eryajf/tu/main/img/image_20230323_150547.jpg)
 
+### 支持 gpt-4
+
+如果你的账号通过了官方的白名单，那么可以将模型配置为：`gpt-4-0314`或`gpt-4`，目前gpt-4的余额查询以及图片生成功能暂不可用，可能是接口限制，也可能是其他原因，等我有条件的时候，会对这些功能进行测试验证。
+
+> 以下是gpt-3.5与gpt-4对数学计算方面的区别。
+
+![image_20230330_180308](https://cdn.staticaly.com/gh/eryajf/tu/main/img/image_20230330_180308.jpg)
+
+感谢[@PIRANHACHAN](https://github.com/PIRANHACHAN)同学提供的gpt-4的key，使得项目在gpt-4的对接上能够进行验证测试，达到了可用状态。
+
 ##  本地开发
 
 ```sh
@@ -321,7 +333,7 @@ $ go run main.go
 {
     "api_key": "xxxxxxxxx",   // openai api_key
     "base_url": "api.openai.com", //  如果你想指定请求url的地址，可通过这个参数进行配置，默认为官方地址，不需要再添加 /v1
-    "model": "gpt-3.5-turbo", // 指定模型，默认为 gpt-3.5-turbo , 可选参数有： "gpt-4-32k-0314", "gpt-4-32k", "gpt-4-0314", "gpt-4", "gpt-3.5-turbo-0301", "gpt-3.5-turbo", "text-davinci-003", "text-davinci-002", "text-curie-001", "text-babbage-001", "text-ada-001", "text-davinci-001", "davinci-instruct-beta", "davinci", "curie-instruct-beta", "curie", "ada", "babbage"
+    "model": "gpt-3.5-turbo", // 指定模型，默认为 gpt-3.5-turbo , 可选参数有： "gpt-4-0314", "gpt-4", "gpt-3.5-turbo-0301", "gpt-3.5-turbo"
     "session_timeout": 600,   // 会话超时时间,默认600秒,在会话时间内所有发送给机器人的信息会作为上下文
     "http_proxy": "",         // 指定请求时使用的代理，如果为空，则不使用代理
     "default_mode": "单聊",    // 默认对话模式，可根据实际场景自定义，如果不设置，默认为单聊
@@ -357,3 +369,46 @@ $ go run main.go
 
 > 本项目曾在 | [2022-12-12](https://github.com/bonfy/github-trending/blob/master/2022/2022-12-12.md#go) | [2022-12-18](https://github.com/bonfy/github-trending/blob/master/2022/2022-12-18.md#go) | [2022-12-19](https://github.com/bonfy/github-trending/blob/master/2022/2022-12-19.md#go) | [2022-12-20](https://github.com/bonfy/github-trending/blob/master/2022/2022-12-20.md#go) | [2023-02-09](https://github.com/bonfy/github-trending/blob/master/2023-02-09.md#go) | [2023-02-10](https://github.com/bonfy/github-trending/blob/master/2023-02-10.md#go) | [2023-02-11](https://github.com/bonfy/github-trending/blob/master/2023-02-11.md#go) | [2023-02-12](https://github.com/bonfy/github-trending/blob/master/2023-02-12.md#go) | [2023-02-13](https://github.com/bonfy/github-trending/blob/master/2023-02-13.md#go) | [2023-02-14](https://github.com/bonfy/github-trending/blob/master/2023-02-14.md#go) | [2023-02-15](https://github.com/bonfy/github-trending/blob/master/2023-02-15.md#go) | [2023-03-04](https://github.com/bonfy/github-trending/blob/master/2023-03-04.md#go) | [2023-03-05](https://github.com/bonfy/github-trending/blob/master/2023-03-05.md#go) | [2023-03-19](https://github.com/bonfy/github-trending/blob/master/2023-03-19.md#go) | [2023-03-22](https://github.com/bonfy/github-trending/blob/master/2023-03-22.md#go) | [2023-03-25](https://github.com/bonfy/github-trending/blob/master/2023-03-25.md#go) | [2023-03-26](https://github.com/bonfy/github-trending/blob/master/2023-03-26.md#go), 这些天里，登上GitHub Trending。而且还在持续登榜中，可见最近openai的热度。
 > ![image_20230316_114915](https://cdn.staticaly.com/gh/eryajf/tu/main/img/image_20230316_114915.jpg)
+
+## 贡献者列表
+
+<!-- readme: collaborators,contributors -start -->
+<table>
+<tr>
+    <td align="center">
+        <a href="https://github.com/eryajf">
+            <img src="https://avatars.githubusercontent.com/u/33259379?v=4" width="100;" alt="eryajf"/>
+            <br />
+            <sub><b>二丫讲梵</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/laorange">
+            <img src="https://avatars.githubusercontent.com/u/68316902?v=4" width="100;" alt="laorange"/>
+            <br />
+            <sub><b>辣橙</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/luoxufeiyan">
+            <img src="https://avatars.githubusercontent.com/u/6621172?v=4" width="100;" alt="luoxufeiyan"/>
+            <br />
+            <sub><b>Hugh Gao</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/iblogc">
+            <img src="https://avatars.githubusercontent.com/u/3283023?v=4" width="100;" alt="iblogc"/>
+            <br />
+            <sub><b>Iblogc</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/WinMin">
+            <img src="https://avatars.githubusercontent.com/u/18380453?v=4" width="100;" alt="WinMin"/>
+            <br />
+            <sub><b>Swing</b></sub>
+        </a>
+    </td></tr>
+</table>
+<!-- readme: collaborators,contributors -end -->
